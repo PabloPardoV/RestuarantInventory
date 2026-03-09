@@ -2,7 +2,6 @@
 // This is the entry point of the application.
 // It creates the main window, sets up screen switching, and attaches
 // all button click logic to the GUI components.
-
 import javax.swing.*
 import java.awt.CardLayout
 import java.awt.event.MouseAdapter

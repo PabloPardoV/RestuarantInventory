@@ -67,5 +67,10 @@ public class Inventory {
         }
 
         table1.setModel(model);
+
+        // Force the scroll pane that wraps the table to redraw.
+        // Without this, the table display can stay stale after setModel() is called.
+        table1.revalidate();
+        table1.repaint();
     }
 }

@@ -160,6 +160,17 @@ class Main {
                 inventory.refreshTable(rows)
             }
 
+            // Also trigger the filter when the user presses Enter inside the search box,
+            // so they do not have to move to the button after typing
+            if (inventory.getSearchField() != null) {
+                inventory.getSearchField().addActionListener {
+                    int    restId = AppSession.getCurrentRestaurantId()
+                    String search = inventory.getSearchField().getText().trim()
+                    List<Object[]> rows = inventoryDAO.getInventory(restId, search, "All")
+                    inventory.refreshTable(rows)
+                }
+            }
+
             // Double-clicking a row in the inventory table opens an edit dialog.
             // This lets the user update an item's cost or low-stock threshold
             // without needing an extra button in the form file.
